@@ -52,8 +52,8 @@
 
 <body>
   <div class="container">
-    <!-- <div class="output" id="ratio" style="height: 50; width: 100; border: 1px solid red; left: 100;top:10;z-index:99">0</div>
-    <div  class="output" id="blinks" style="height: 50; width: 100; border: 1px solid green; left: 50;top:100;z-index:99;">0</div> -->
+    <div class="output" id="ratio" style="height: 50; width: 100; border: 1px solid red; left: 100;top:10;z-index:99">0</div>
+    <div  class="output" id="blinks" style="height: 50; width: 100; border: 1px solid green; left: 50;top:100;z-index:99;">0</div>
     <div  class="output" id="words" style="height: 50; width: 100; border: 1px solid green; left: 50;top:100;z-index:99;">&nbsp;</div>
     <div id="alphabets">
       <div class="row" id="row-a-e">
@@ -126,30 +126,31 @@
   let CLOSED_EYES_FRAME = 5
   let BACKSPACE_EYES_FRAME = 20
   let RESTART_EYES_FRAME = 40
+  const CLOSED_EYE_RATIO = 2.0
   window.finalratio = 0
   
-  // const euclideanDistance = (a, b) => Math.hypot(...Object.keys(a).map(k => b[k] - a[k]));
-  const euclideanDistance = (a, b) => Math.abs(a - b);
+  // const euclideanDistance = (a, b) => Math.abs(a - b);
+  const euclideanDistance = (a, b) => Math.sqrt( Math.pow(a.x - b.x, 2) + Math.pow(a.y - b.y, 2));
 
   function blinkRatio(landmarks){
     // debugger
     // Right eyes 
     // horizontal line 
-    let rh_right = landmarks[33].x
-    let rh_left = landmarks[133].x
+    let rh_right = landmarks[33]
+    let rh_left = landmarks[133]
     // vertical line 
-    let rv_top = landmarks[159].y
-    let rv_bottom = landmarks[145].y
+    let rv_top = landmarks[159]
+    let rv_bottom = landmarks[145]
     // draw lines on right eyes 
     // cv.line(img, rh_right, rh_left, utils.GREEN, 2)
     // cv.line(img, rv_top, rv_bottom, utils.WHITE, 2)
     // LEFT_EYE 
     // horizontal line 
-    let lh_right = landmarks[362].x
-    let lh_left = landmarks[263].x
+    let lh_right = landmarks[362]
+    let lh_left = landmarks[263]
     // vertical line 
-    let lv_top = landmarks[386].y
-    let lv_bottom = landmarks[264].y
+    let lv_top = landmarks[386]
+    let lv_bottom = landmarks[264]
 
     // Finding Distance Right Eye
     let rhDistance = euclideanDistance(rh_right, rh_left)
@@ -207,15 +208,15 @@
       
     }
     
-    if (finalratio > 5.5){
+    if (finalratio > CLOSED_EYE_RATIO){
       CEF_COUNTER += 1;
     }else{
       // debugger
       if (CEF_COUNTER > CLOSED_EYES_FRAME){
           TOTAL_BLINKS += 1;
           blinkDetected = true;
-          // document.getElementById('blinks').innerHTML = TOTAL_BLINKS;
-          // document.getElementById('ratio').innerHTML = finalratio;
+          document.getElementById('blinks').innerHTML = TOTAL_BLINKS;
+          document.getElementById('ratio').innerHTML = finalratio;
       }
 
       /* if(CEF_COUNTER > BACKSPACE_EYES_FRAME){
