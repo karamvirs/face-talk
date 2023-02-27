@@ -124,7 +124,8 @@
   
   // constants
   let CLOSED_EYES_FRAME = 5
-  let RESTART_EYES_FRAME = 20
+  let BACKSPACE_EYES_FRAME = 20
+  let RESTART_EYES_FRAME = 40
   window.finalratio = 0
   
   // const euclideanDistance = (a, b) => Math.hypot(...Object.keys(a).map(k => b[k] - a[k]));
@@ -161,6 +162,22 @@
     let leRatio = lhDistance/lvDistance
     let ratio = (reRatio+leRatio)/2
     return ratio
+  }
+
+  // did the person look left - can be used to delete last character
+  function leftLook(){
+
+  }
+
+  // did the person look right - can be used to applu auto suggested word
+  function rightLook(){
+
+  }
+
+  function backspace(){
+    let content = $('#words').html();
+    content = content != '' ? content.slice(0, -1) : '';
+    $('#words').html(content);
   }
 
   function onResults(results) {    
@@ -201,6 +218,10 @@
           // document.getElementById('ratio').innerHTML = finalratio;
       }
 
+      /* if(CEF_COUNTER > BACKSPACE_EYES_FRAME){
+        backspace();
+        restart();
+      } */
       if(CEF_COUNTER > RESTART_EYES_FRAME){
         restart();
       }
@@ -311,11 +332,6 @@
         
       $target.addClass('column-highlighted');
       
-      /* columnLoopCounter++;
-      if(columnLoopCounter >= 10){
-        columnLoopCounter = 0;
-        restart();
-      } */
     }  
 
     function restart(){
