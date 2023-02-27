@@ -181,6 +181,20 @@
     $('#words').html(content);
   }
 
+  function updateMessage(letter){
+    // console.log('letter')
+    // console.log(letter)
+
+    if(typeof letter === 'undefined'){
+      return false;
+    }
+    
+    let content = $('#words').html();
+    $('#words').html(content + letter.toUpperCase());
+
+    return true;
+  }
+
   function onResults(results) {    
     
     canvasCtx.save();
@@ -316,7 +330,11 @@
             content = $current.html();
 
         }
-          $('#words').html($('#words').html() + content);
+
+          if(!updateMessage(content)){
+            restart();
+            return;
+          }
           clearInterval(columnPromptsInterval);
 
           rowPromptActive = true;
