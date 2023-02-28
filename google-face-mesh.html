@@ -48,6 +48,12 @@
       float: left;
     }
   </style>
+  <script>
+      let practiseMode = true
+      function startProcess(){
+        practiseMode = false;
+      }
+  </script>
 </head>
 
 <body>
@@ -96,9 +102,9 @@
         <span class="column">space</span>
         <span class="column">comma</span>
         <span class="column">period</span>        
-      </div>
-      <div class="row"><button id="start-button" onclick="startProcess()">START</button></div>
-    </div>    
+      </div>      
+    </div>  
+    <div style="float:right"><button id="start-button" onclick="startProcess()">START</button></div>  
     <video class="input_video"></video>
     <br>
     <canvas class="output_canvas" width="780px" height="440px"></canvas>
@@ -130,14 +136,10 @@
   const CLOSED_EYE_RATIO = 2.0
   window.finalratio = 0
 
-  let practiseMode = true
+  
   
   // const euclideanDistance = (a, b) => Math.abs(a - b);
   const euclideanDistance = (a, b) => Math.sqrt( Math.pow(a.x - b.x, 2) + Math.pow(a.y - b.y, 2));
-
-  function startProcess(){
-    practiseMode = false;
-  }
 
   function blinkRatio(landmarks){
     // debugger
