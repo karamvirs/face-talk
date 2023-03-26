@@ -1,0 +1,40 @@
+
+#alphabets{
+  /*   float: right; */
+  }
+  #alphabets .row{
+   /*  clear:both;
+    display: block; */
+   /*  height: 50px; */
+   /*  width: 400px; */
+    /* border: 1px solid; */
+  }
+
+  #alphabets .row .col{
+    border: 1px solid;
+    padding:10px 5px;
+    text-transform: capitalize;
+
+  }
+
+  .row-highlighted{
+    background-color: red !important;
+  }
+  
+  .column-highlighted{
+    background-color: yellow !important;
+  }
+
+ /*  .output{
+    clear:both;
+    display: block;
+  }
+ */
+.output-box{}
+ 
+  .input_video{
+    display: none;
+  }
+  .output_canvas{
+    float: left;
+  }

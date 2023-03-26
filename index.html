@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./scripts/camera_utils.js" crossorigin="anonymous"></script>
+  <script src="./scripts/control_utils.js" crossorigin="anonymous"></script>
+  <script src="./scripts/drawing_utils.js" crossorigin="anonymous"></script>
+  <script src="./scripts/face_mesh.js" crossorigin="anonymous"></script>
+   <script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
+  
+  <script src="./scripts/bootstrap.min.js"></script>  
+  <link rel="stylesheet" href="./assets/bootstrap.min.css" />
+  <link rel="stylesheet" href="./assets/style.css" />
+</head>
+
+<body class="bg-light">
+  <div class="container">
+ 
+ 
+  <section class="pt-5 pb-5 text-center" id="alphabets">
+   
+	
+      <div class="row bg-white" id="row-a-f">
+        <div class="col">A</div>
+        <div class="col">B</div>
+        <div class="col">C</div>
+        <div class="col">D</div>
+        <div class="col">E</div>
+		<div class="col">F</div>
+      </div>
+      <div class="row bg-white" id="row-g-l">
+        
+        <div class="col">G</div>
+        <div class="col">H</div>
+        <div class="col">I</div>
+        <div class="col">J</div>
+		 <div class="col">k</div>
+		  <div class="col">l</div>
+      </div>
+      <div  class="row bg-white" id="row-m-r">
+       
+       
+        <div class="col">m</div>
+        <div class="col">n</div>
+        <div class="col">o</div>
+		 <div class="col">p</div>
+        <div class="col">q</div>
+        <div class="col">r</div>
+      </div>
+      <div  class="row bg-white" id="row-s-x">
+       
+        <div class="col">s</div>
+        <div class="col">t</div>
+		  <div class="col">u</div>
+        <div class="col">v</div>
+        <div class="col">w</div>
+        <div class="col">x</div>
+      </div>
+      <div  class="row bg-white" id="row-y-z">
+      
+        <div class="col">y</div>
+        <div class="col">z</div>
+      </div>
+	  
+      <div  class="row bg-primary-subtle  mt-2" id="punctuation">
+        <div class="col border-primary-subtle border-end  p-2">SPACE</div>
+        <div class="col border-primary-subtle border-end  p-2">COMMA</div>
+        <div class="col border-primary-subtle p-2">PERIOD</div>        
+      </div>     
+	  
+     <!-- ROW END -->
+	 </section><!-- section END -->
+	
+	
+	
+	   
+	<!--  output Starts -->
+	
+	<section class="row">
+	
+	
+	     
+		 <div class="col-6">
+			<video class="input_video"></video>
+			<br>
+			<canvas class="output_canvas border border-primary"></canvas>
+			<!-- <canvas class="output_canvas" width="780px" height="440px"></canvas> -->
+			
+	      </div>
+	
+		  <div class="col-6">
+			 <h5>Output</h5>
+			<div  class="col output-box bg-success border-primary p-5 text-white text-center" id="words">&nbsp;</div>			  
+		   <div class="output" id="ratio" style="opacity:0">0</div>
+		   <div  class="output" id="blinks" style="opacity:0">0</div>
+			 </div>
+		   <!-- output End -->
+		
+	   </section>
+	<!--  output End -->
+	
+	
+  </div>
+  <!-- container End -->
+  
+  
+  
+  <!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered ">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="myModalLabel">Instructions</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before final copy is available. Wikipedia
+
+      </div>
+	  <div class="modal-footer">
+        <button class="btn btn-primary" data-bs-target="#myModal" data-bs-toggle="modal">Ok Got It</button>
+      </div>
+   
+    </div>
+  </div>
+</div>
+  
+<script>
+    $(document).ready(function(){
+        $("#myModal").modal('show');
+    });
+</script>
+  
+  <script src="./scripts/main.js"></script>
+   
+</body>
+</html>
+
+
+  
