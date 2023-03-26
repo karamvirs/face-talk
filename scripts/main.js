@@ -21,6 +21,7 @@ let RESTART_EYES_FRAME = 40
 const CLOSED_EYE_RATIO = 2.0
 window.finalratio = 0
 
+let faceMesh, camera
 
 const euclideanDistance = (a, b) => Math.sqrt(Math.pow(a.x - b.x, 2) + Math.pow(a.y - b.y, 2))
 
@@ -136,29 +137,35 @@ function onResults(results) {
     canvasCtx.restore()
 }
 
-const faceMesh = new FaceMesh({
-    locateFile: (file) => {
-        return `https://cdn.jsdelivr.net/npm/@mediapipe/face_mesh/${file}`
-    }
-})
-faceMesh.setOptions({
-    maxNumFaces: 1,
-    refineLandmarks: true,
-    minDetectionConfidence: 0.5,
-    minTrackingConfidence: 0.5,
-    staticImageMode: true,
-})
+function init(){
+    $('#ok-btn').html('loading..')
+    faceMesh = new FaceMesh({
+        locateFile: (file) => {
+            return `https://cdn.jsdelivr.net/npm/@mediapipe/face_mesh/${file}`
+        }
+    })
+    faceMesh.setOptions({
+        maxNumFaces: 1,
+        refineLandmarks: true,
+        minDetectionConfidence: 0.5,
+        minTrackingConfidence: 0.5,
+        staticImageMode: true,
+    })
+    
+    faceMesh.onResults(onResults)
+    
+    camera = new Camera(videoElement, {
+        onFrame: async () => {
+            await faceMesh.send({ image: videoElement })
+        },
+        width: 1280,
+        height: 720
+    })
+    camera.start()
 
-faceMesh.onResults(onResults)
-
-const camera = new Camera(videoElement, {
-    onFrame: async () => {
-        await faceMesh.send({ image: videoElement })
-    },
-    width: 1280,
-    height: 720
-})
-camera.start()
+    setTimeout(() => $('#myModal').modal('hide'), 2000)
+    
+}
 
 
 var $rows = $('#alphabets .row')

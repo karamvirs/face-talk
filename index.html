@@ -115,17 +115,17 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        How to use:
+        <b>You can see a grid with letters of the Engligh alphabet. Goal is to be able to select a letter with an eye blink.</b>
         <ol>
           <li>Blink your eyes for 1 second to select a line (slightly longer than normal blink)</li>
-          <li>Blink your eyes for 1 second again to select on a letter (slightly longer than normal blink)</li>
+          <li>Blink your eyes for 1 second again to select a letter (slightly longer than normal blink)</li>
           <li>To delete a letter, blink for 2 seconds (double longer than selection blinks)</li>
           <li>If you make a mistake and want to restart the prompts, blink for 4 seconds (double longer than deletion blink)</li>
         </ul>
 
       </div>
 	  <div class="modal-footer">
-        <button class="btn btn-primary" data-bs-target="#myModal" data-bs-toggle="modal">Ok Got It</button>
+        <button class="btn btn-primary" id="ok-btn" onclick="init()">Ok Got It</button>
       </div>
    
     </div>
