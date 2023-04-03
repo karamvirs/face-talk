@@ -6,6 +6,9 @@ It consists of an on screen prompter which has the english alphabet and user can
 
 Current code support only blink detection but you can see a list of planned features below.
 
+Demo screenshot:
+![](https://github.com/karamvirs/face-talk/blob/main/assets/demo.png)
+
 ### Current Features
 
 - Blink Detection with the device camera to select prompts on screen
@@ -20,3 +23,6 @@ Current code support only blink detection but you can see a list of planned feat
 - Add word auto completion while typing
 - Add next word prediction based on NLP modles
 - Create mobile app
+
+### Furthere reading
+https://medium.com/@kaylogics/develop-a-prototype-that-leverages-facial-expressions-to-facilitate-non-vocal-communication-c03f796a4d17
